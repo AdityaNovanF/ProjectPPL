@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePupuk extends Migration
+class CreateTablePo extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreatePupuk extends Migration
      */
     public function up()
     {
-        Schema::create('m_pupuk', function (Blueprint $table) {
+        Schema::create('m_po', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('pupuk')->unsigned();
             $table->string('nama', 225);
-            $table->text('manfaat');
-            $table->integer('stock');
-            $table->integer('harga');
+            $table->string('kode', 40);
+            $table->integer('jumlah');
             $table->timestamps();
 
+            $table->foreign('pupuk')->references('id')->on('m_pupuk')->onDelete('restrict');
             $table->engine = 'InnoDB';
         });
     }
@@ -32,7 +33,7 @@ class CreatePupuk extends Migration
      */
     public function down()
     {
-        Schema::table('m_pupuk', function (Blueprint $table) {
+        Schema::table('m_po', function (Blueprint $table) {
             //
         });
     }

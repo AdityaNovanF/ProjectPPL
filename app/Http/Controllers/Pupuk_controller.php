@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Models\M_pupuk;
 
-class pupuk_controller extends Controller
+class Pupuk_controller extends Controller
 {
     public function index()
     {
-        $title = 'Data Pupuk dan Obat Tanaman';
+        $title = 'Data Master pupuk';
         $data = M_pupuk::orderby('nama', 'asc')->get();
 
         return view('pupuk.index', compact('title', 'data'));
@@ -18,7 +18,7 @@ class pupuk_controller extends Controller
 
     public function add()
     {
-        $title = 'Tambah Data Pupuk/Obat Tanaman';
+        $title = 'Tambah Data pupuk';
         return view('pupuk.add', compact('title'));
     }
 
@@ -26,13 +26,15 @@ class pupuk_controller extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'berat' => 'required',
-            'manfaat' => 'required'
+            'manfaat' => 'required',
+            'stock' => 'required',
+            'harga' => 'required'
         ]);
 
         $a['nama'] = $request->nama;
-        $a['berat'] = $request->berat;
         $a['manfaat'] = $request->manfaat;
+        $a['stock'] = $request->stock;
+        $a['harga'] = $request->harga;
         $a['created_at'] = date('Y-m-d H:1:s');
         $a['updated_at'] = date('Y-m-d H:1:s');
 
@@ -54,13 +56,15 @@ class pupuk_controller extends Controller
     {
         $this->validate($request, [
             'nama' => 'required',
-            'berat' => 'required',
-            'manfaat' => 'required'
+            'manfaat' => 'required',
+            'stock' => 'required',
+            'harga' => 'required'
         ]);
 
         $a['nama'] = $request->nama;
-        $a['berat'] = $request->berat;
         $a['manfaat'] = $request->manfaat;
+        $a['stock'] = $request->stock;
+        $a['harga'] = $request->harga;
         $a['updated_at'] = date('Y-m-d H:1:s');
 
         M_pupuk::where('id', $id)->update($a);

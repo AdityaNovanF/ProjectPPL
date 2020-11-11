@@ -31,6 +31,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('/pupuk/{id}', 'Pupuk_controller@update');
 
     Route::delete('/pupuk/{id}', 'Pupuk_controller@delete');
+
+    //manage Po
+    Route::get('/po', 'Po_controller@index');
+    Route::get('/po/detail/{id}', 'Po_controller@detail');
+
+    Route::get('/po/add', 'Po_controller@add');
+    Route::post('/po/add', 'Po_controller@store');
+
+    Route::get('/po/{id}', 'Po_controller@edit');
+    Route::put('/po/{id}', 'Po_controller@update');
+
+    Route::delete('/po/{id}', 'Po_controller@delete');
 });
 
 Auth::routes();

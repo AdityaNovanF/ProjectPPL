@@ -9,42 +9,43 @@
             <div class="box-header">
                 <p>
                     <button class="btn btn-sm btn-flat btn-warning btn-refresh"><i class="fa fa-refresh"></i> Refresh</button>
-                    <a href='{{ url('pupuk/add') }}' class="btn btn-sm btn-flat btn-primary"><i class="fa fa-plus"></i> Tambah pupuk</a>
+                    <a href='{{ url('po/add') }}' class="btn btn-sm btn-flat btn-primary"><i class="fa fa-plus"></i> Add Pre Orders</a>
                 </p>
             </div>
             <div class="box-body">
 
                 <div class='table-responsive'>
-                    <table class='table myTable'>
+                    <table class='table table-hover myTable'>
                         <thead>
                             <tr>
                                 <th>action</th>
                                 <th>No.</th>
+                                <th>Pupuk</th>
                                 <th>Nama</th>
-                                <th>Manfaat</th>
-                                <th>Stock</th>
-                                <th>Harga</th>
+                                <th>Kode</th>
+                                <th>Jumlah</th>
+                                <th>Harga Satuan</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($data as $e=>$dt)
                             <tr>
                                 <td>
-                                    <div style="width:60px">
-                                        <a href='{{ url('pupuk/'.$dt->id) }}' class="btn btn-warning btn-xs btn-edit" id="edit"><i class="fa fa-pencil-square-o"></i></a>
-                                        <button href='{{ url('pupuk/'.$dt->id) }}' class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
+                                    <div style="width:80px">
+                                        <a href='{{url('po/'.$dt->id)}}' class="btn btn-warning btn-xs btn-edit" id="edit"><i class="fa fa-pencil-square-o"></i></a>
+                                        <button href='{{url('po/'.$dt->id)}}' class="btn btn-danger btn-xs btn-hapus" id="delete"><i class="fa fa-trash-o"></i></button>
                                     </div>
                                 </td>
-                                <td>{{$e+1}}</td>
-                                <td>{{$dt->nama}}</td>
-                                <td>{{$dt->manfaat}}</td>
-                                <td>{{$dt->stock}}</td>
-                                <td>{{$dt->harga}}</td>
+                                <td>{{ $e+1 }}</td>
+                                <td>{{ $dt->pupuk_r->nama }}</td>
+                                <td>{{ $dt->nama }}</td>
+                                <td>{{ $dt->kode }}</td>
+                                <td>{{ $dt->jumlah }}</td>
+                                <td>{{ $dt->pupuk_r->harga }}</td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-
                 </div>
 
             </div>

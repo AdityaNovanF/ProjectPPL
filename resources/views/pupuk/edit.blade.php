@@ -19,16 +19,20 @@
                     {{ method_field('put') }}
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Pupuk/Obat</label>
+                            <label for="exampleInputEmail1">Nama</label>
                             <input type="text" name='nama' class="form-control" id="exampleInputEmail1" placeholder="Nama pupuk" value="{{$dt->nama}}">
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Berat (Kg)</label>
-                            <input type="number" name='berat' class="form-control" id="exampleInputPassword1" placeholder="Berat" value="{{$dt->berat}}">
-                        </div>
                         <div class=" form-group">
-                            <label for="exampleInputPassword1">Manfaat</label>
+                            <label for="exampleInputPassword1">manfaat</label>
                             <textarea class='form-control' name="manfaat" rows="5">{{$dt->manfaat}}</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Stock</label>
+                            <input type="number" name='stock' class="form-control" id="exampleInputPassword1" placeholder="Stock" value="{{$dt->stock}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Harga</label>
+                            <input type="number" name='harga' class="form-control" id="exampleInputPassword1" placeholder="harga" value="{{$dt->harga}}">
                         </div>
                     </div>
                     <!-- /.box-body -->
